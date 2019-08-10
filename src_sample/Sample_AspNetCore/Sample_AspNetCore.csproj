@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <Authors>Mahmoud Savarian</Authors>
+    <PackageProjectUrl>https://github.com/sav68/micro-serilog-sinks-rabbitmq</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sav68/micro-serilog-sinks-rabbitmq</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
