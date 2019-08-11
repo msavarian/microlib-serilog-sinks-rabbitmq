@@ -21,6 +21,6 @@ namespace Micro.Serilog.Sinks.RabbitMQ
         public string RabbitMqExchange { get; set; } = string.Empty;
         public string RabbitMqExchangeType { get; set; } = string.Empty;
         public string RabbitMqRouteKey { get; set; } = string.Empty;
-        public string RabbitMqQueueName { get { return RabbitMqRouteKey + "Queue"; } }
+        public string RabbitMqQueueName { get; set; } = string.Empty;
     }
 }
