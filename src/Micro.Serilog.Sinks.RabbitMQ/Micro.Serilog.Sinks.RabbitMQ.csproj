@@ -8,6 +8,7 @@
     <RepositoryUrl>https://github.com/sav68/micro-serilog-sinks-rabbitmq</RepositoryUrl>
     <PackageTags>serilog, sink, rabbitmq, logging</PackageTags>
     <PackageLicenseUrl>https://github.com/sav68/micro-serilog-sinks-rabbitmq/blob/master/LICENSE</PackageLicenseUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
