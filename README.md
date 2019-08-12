@@ -4,7 +4,7 @@ It's a very simple ***serilog sink for rabbitmq***, but **it is working** :)
 
 # How to use
 
-#### In .net core *console* app
+### In .net core *console* app
 **In program.cs class file**
 ```
 class Program
@@ -41,7 +41,7 @@ class Program
 
 ```
 ---
-#### In *aspnetcore* app
+### In *aspnetcore* app
 **In startup.cs class file**
 ```
 public class Startup
