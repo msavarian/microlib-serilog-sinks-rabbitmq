@@ -4,7 +4,7 @@ It's a very simple *serilog sink for rabbitmq*, but **it is working** :)
 
 # How to use
 
-### In .net core console app
+#### In .net core console app
 ```
 class Program
     {
@@ -39,8 +39,8 @@ class Program
             ...
 
 ```
-
-### In aspnetcore app
+---
+#### In aspnetcore app
 In startup.cs class file
 ```
 public class Startup
@@ -76,7 +76,7 @@ public class Startup
         }
 ```
 
-and in Controllers and any where you want to add log (send logs to rabbitmq)
+And in the Controllers or anywhere that you want to add logs (send logs to rabbitmq)
 ```
 public class HomeController : Controller
     {
@@ -100,4 +100,4 @@ public class HomeController : Controller
         }
 ```
 ---
-Follow Samples
+### Follow Samples in this repository (source code).
