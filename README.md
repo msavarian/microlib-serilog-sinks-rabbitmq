@@ -1,10 +1,11 @@
 # micro-serilog-sinks-rabbitmq
-It's a very simple *serilog sink for rabbitmq*, but **it is working** :)
+It's a very simple ***serilog sink for rabbitmq***, but **it is working** :)
 
 
 # How to use
 
-#### In .net core console app
+#### In .net core *console* app
+**In program.cs class file**
 ```
 class Program
     {
@@ -40,8 +41,8 @@ class Program
 
 ```
 ---
-#### In aspnetcore app
-In startup.cs class file
+#### In *aspnetcore* app
+**In startup.cs class file**
 ```
 public class Startup
     {        
@@ -76,7 +77,7 @@ public class Startup
         }
 ```
 
-And in the Controllers or anywhere that you want to add logs (send logs to rabbitmq)
+**And in the Controllers or anywhere that you want to add logs (send logs to rabbitmq)**
 ```
 public class HomeController : Controller
     {
