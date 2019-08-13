@@ -5,7 +5,11 @@ It's a very simple ***serilog sink for rabbitmq***, but **it is working** :)
 # How to use
 
 ### In .net core *console* app
-**In program.cs class file**
+1. Install the nuget package
+```
+Install-Package Micro.Serilog.Sinks.RabbitMQ -Version 1.0.1
+```
+2. **In program.cs class file**
 ```
 class Program
     {
@@ -42,7 +46,11 @@ class Program
 ```
 ---
 ### In *aspnetcore* app
-**In startup.cs class file**
+1. Install the nuget package
+```
+Install-Package Micro.Serilog.Sinks.RabbitMQ -Version 1.0.1
+```
+2. **In startup.cs class file**
 ```
 public class Startup
     {        
@@ -77,7 +85,7 @@ public class Startup
         }
 ```
 
-**And in the Controllers or anywhere that you want to add logs (send logs to rabbitmq)**
+3. **And in the Controllers or anywhere that you want to add logs (send logs to rabbitmq)**
 ```
 public class HomeController : Controller
     {
