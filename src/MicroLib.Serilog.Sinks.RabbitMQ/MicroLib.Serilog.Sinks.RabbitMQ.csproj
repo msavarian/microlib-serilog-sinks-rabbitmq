@@ -9,6 +9,7 @@
     <PackageTags>serilog, sink, rabbitmq, logging, dotnet-core</PackageTags>
     <PackageLicenseUrl>https://github.com/sav68/microlib-serilog-sinks-rabbitmq/blob/master/LICENSE</PackageLicenseUrl>
     <Version>1.0.2</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
