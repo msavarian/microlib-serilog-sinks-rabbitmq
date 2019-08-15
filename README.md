@@ -7,7 +7,7 @@ It's a very simple ***serilog sink for rabbitmq***, but **it is working** :)
 ### In .net core *console* app
 1. Install the nuget package
 ```
-Install-Package Micro.Serilog.Sinks.RabbitMQ -Version 1.0.1
+Install-Package MicroLib.Serilog.Sinks.RabbitMQ
 ```
 2. **In program.cs class file**
 ```
@@ -26,8 +26,8 @@ class Program
                        RabbitMqUsername = "guest",
                        RabbitMqPassword = "guest",
 
-                       RabbitMqExchange = "MicroLogger-ExchangeName",
-                       RabbitMqExchangeType = RabbitMQ.Client.ExchangeType.Direct,
+                       RabbitMqExchangeName = "MicroLogger-ExchangeName",
+                       RabbitMqExchangeType = MicroLib.RabbitMQ.Client.Helper.Standard.Model.ExchangeType.Direct,
                        RabbitMqRouteKey = "MicroLogger-RoutKeyName",
                        RabbitMqQueueName = "MicroLogger-QueueName"
                    })
@@ -69,8 +69,8 @@ public class Startup
                        RabbitMqUsername = "guest",
                        RabbitMqPassword = "guest",
 
-                       RabbitMqExchange = "MicroLogger-ExchangeName",
-                       RabbitMqExchangeType = RabbitMQ.Client.ExchangeType.Direct,
+                       RabbitMqExchangeName = "MicroLogger-ExchangeName",
+                       RabbitMqExchangeType = MicroLib.RabbitMQ.Client.Helper.Standard.Model.ExchangeType.Direct,
                        RabbitMqRouteKey = "MicroLogger-RoutKeyName",
                        RabbitMqQueueName = "MicroLogger-QueueName"
                    })
