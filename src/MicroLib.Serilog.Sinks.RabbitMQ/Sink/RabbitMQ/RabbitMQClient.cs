@@ -1,4 +1,6 @@
-﻿using RabbitMQ.Client;
+﻿using MicroLib.RabbitMQ.Client.Helper.Standard.Functions;
+using MicroLib.RabbitMQ.Client.Helper.Standard.Model;
+using RabbitMQ.Client;
 using System;
 using System.Text;
 
@@ -6,51 +8,65 @@ namespace Micro.Serilog.Sinks.RabbitMQ
 {
     public class RabbitMQClient : IDisposable
     {
-        ConnectionFactory _factory;
-        IConnection _connection;
-        IModel _model;
         private readonly SinkConfiguration _sinkConfiguration;
+        private readonly RabbitMqFunctions _rabbitMQFunctions;
+        private readonly IConnection _connection;
 
         public RabbitMQClient(SinkConfiguration sinkConfiguration)
         {
             _sinkConfiguration = sinkConfiguration;
-            Init();
+            _rabbitMQFunctions = new RabbitMqFunctions();
+            _connection = Init();
         }
-        public void Init()
+        public IConnection Init()
         {
-            _factory = new ConnectionFactory
-            {
-                HostName = _sinkConfiguration.RabbitMqHostName,
-                UserName = _sinkConfiguration.RabbitMqUsername,
-                Password = _sinkConfiguration.RabbitMqPassword
-            };
-
-            _connection = _factory.CreateConnection(_sinkConfiguration.ClientName);
-            _model = _connection.CreateModel();
-
             try
             {
-                _model.QueueDeclare(_sinkConfiguration.RabbitMqQueueName, true, false, false, null);
-                _model.ExchangeDeclare(_sinkConfiguration.RabbitMqExchange, _sinkConfiguration.RabbitMqExchangeType, true, false, null);
-                _model.QueueBind(_sinkConfiguration.RabbitMqQueueName, _sinkConfiguration.RabbitMqExchange, _sinkConfiguration.RabbitMqRouteKey);
+
+                // Initialize a connection
+                var connection= _rabbitMQFunctions.CreateConnection(
+                new ConnectionInputModel
+                {
+                    ClientName = _sinkConfiguration.ClientName,
+                    ServerIP = _sinkConfiguration.RabbitMqHostName,
+                    ServerPort = _sinkConfiguration.RabbitMqPort,
+                    Username = _sinkConfiguration.RabbitMqUsername,
+                    Password = _sinkConfiguration.RabbitMqPassword
+                });
+
+
+
+                // Be sure to exist the exchange and It's binds
+                _rabbitMQFunctions.CreateAndBindExchange(
+                connection,
+                new ExchangeModel
+                {
+                    ExchangeName = _sinkConfiguration.RabbitMqExchangeName,
+                    ExchangeType = _sinkConfiguration.RabbitMqExchangeType
+                },
+                _sinkConfiguration.RabbitMqRouteKey,
+                new QueueModel
+                {
+                    QueueName = _sinkConfiguration.RabbitMqQueueName
+                });
+
+
+                return connection;
             }
             catch (Exception ex)
             {
+                throw ex;
             }
-
         }
 
         public void SendMessage(string message)
         {
-            var properties = _model.CreateBasicProperties();
-            properties.Persistent = true;
-            _model.BasicPublish(_sinkConfiguration.RabbitMqExchange, _sinkConfiguration.RabbitMqRouteKey, properties, Encoding.ASCII.GetBytes(message));
+            _rabbitMQFunctions.SendMessage(_connection, _sinkConfiguration.RabbitMqExchangeName, _sinkConfiguration.RabbitMqRouteKey, message);
         }
 
 
         public void Dispose()
         {
-            _model?.Dispose();
             _connection?.Dispose();
         }
 

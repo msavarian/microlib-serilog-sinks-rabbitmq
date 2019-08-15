@@ -18,8 +18,8 @@ namespace Micro.Serilog.Sinks.RabbitMQ
         public string RabbitMqUsername { get; set; } = string.Empty;
         public string RabbitMqPassword { get; set; } = string.Empty;
 
-        public string RabbitMqExchange { get; set; } = string.Empty;
-        public string RabbitMqExchangeType { get; set; } = string.Empty;
+        public string RabbitMqExchangeName { get; set; } = string.Empty;
+        public MicroLib.RabbitMQ.Client.Helper.Standard.Model.ExchangeType RabbitMqExchangeType { get; set; } = MicroLib.RabbitMQ.Client.Helper.Standard.Model.ExchangeType.Direct;
         public string RabbitMqRouteKey { get; set; } = string.Empty;
         public string RabbitMqQueueName { get; set; } = string.Empty;
     }

@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Micro.Serilog.Sinks.RabbitMQ" Version="1.0.1" />
+    <PackageReference Include="MicroLib.Serilog.Sinks.RabbitMQ" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

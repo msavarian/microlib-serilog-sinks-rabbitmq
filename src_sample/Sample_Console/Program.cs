@@ -19,8 +19,8 @@ namespace Sample_Console
                        RabbitMqUsername = "guest",
                        RabbitMqPassword = "guest",
 
-                       RabbitMqExchange = "MicroLogger-ExchangeName",
-                       RabbitMqExchangeType = RabbitMQ.Client.ExchangeType.Direct,
+                       RabbitMqExchangeName = "MicroLogger-ExchangeName",
+                       RabbitMqExchangeType = MicroLib.RabbitMQ.Client.Helper.Standard.Model.ExchangeType.Direct,
                        RabbitMqRouteKey = "MicroLogger-RoutKeyName",
                        RabbitMqQueueName = "MicroLogger-QueueName"
                    })
@@ -35,7 +35,7 @@ namespace Sample_Console
 
 
             Console.WriteLine("Press any key for exit...");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

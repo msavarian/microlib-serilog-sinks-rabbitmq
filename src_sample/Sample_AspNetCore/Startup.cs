@@ -32,8 +32,8 @@ namespace Sample_AspNetCore
                        RabbitMqUsername = "guest",
                        RabbitMqPassword = "guest",
 
-                       RabbitMqExchange = "MicroLogger-ExchangeName",
-                       RabbitMqExchangeType = RabbitMQ.Client.ExchangeType.Direct,
+                       RabbitMqExchangeName = "MicroLogger-ExchangeName",
+                       RabbitMqExchangeType = MicroLib.RabbitMQ.Client.Helper.Standard.Model.ExchangeType.Direct,
                        RabbitMqRouteKey = "MicroLogger-RoutKeyName",
                        RabbitMqQueueName = "MicroLogger-QueueName"
                    })
