@@ -9,13 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Micro.Serilog.Sinks.RabbitMQ" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Micro.Serilog.Sinks.RabbitMQ\Micro.Serilog.Sinks.RabbitMQ.csproj" />
   </ItemGroup>
 
 </Project>

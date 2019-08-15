@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{87E6DD87-DB4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src_sample", "src_sample", "{B50F0FFA-1D0A-43A6-BE17-877B2FD2B5F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Serilog.Sinks.RabbitMQ", "src\Micro.Serilog.Sinks.RabbitMQ\Micro.Serilog.Sinks.RabbitMQ.csproj", "{EB89E0A7-F09E-4C98-9DBF-3C63A1DCFA13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroLib.Serilog.Sinks.RabbitMQ", "src\MicroLib.Serilog.Sinks.RabbitMQ\MicroLib.Serilog.Sinks.RabbitMQ.csproj", "{EB89E0A7-F09E-4C98-9DBF-3C63A1DCFA13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample_Console", "src_sample\Sample_Console\Sample_Console.csproj", "{796DA9A5-DE6B-4998-9B04-D236EBE4241F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample_Console", "src_sample\Sample_Console\Sample_Console.csproj", "{796DA9A5-DE6B-4998-9B04-D236EBE4241F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample_AspNetCore", "src_sample\Sample_AspNetCore\Sample_AspNetCore.csproj", "{C82F1BB6-386B-4021-B66A-63F04F9CB31D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample_AspNetCore", "src_sample\Sample_AspNetCore\Sample_AspNetCore.csproj", "{C82F1BB6-386B-4021-B66A-63F04F9CB31D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
