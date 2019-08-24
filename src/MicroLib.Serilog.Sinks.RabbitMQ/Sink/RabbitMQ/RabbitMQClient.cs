@@ -9,22 +9,24 @@ namespace Micro.Serilog.Sinks.RabbitMQ
     public class RabbitMQClient : IDisposable
     {
         private readonly SinkConfiguration _sinkConfiguration;
-        private readonly RabbitMqFunctions _rabbitMQFunctions;
-        private readonly IConnection _connection;
+        private readonly RabbitMqDefinationFunctions _rabbitMqDefinationFunctions;
+        private readonly RabbitMqMessagesFunctions _rabbitMqMessagesFunctions;
+        private readonly IModel _model;
 
         public RabbitMQClient(SinkConfiguration sinkConfiguration)
         {
             _sinkConfiguration = sinkConfiguration;
-            _rabbitMQFunctions = new RabbitMqFunctions();
-            _connection = Init();
+            _rabbitMqDefinationFunctions = new RabbitMqDefinationFunctions();
+            _rabbitMqMessagesFunctions = new RabbitMqMessagesFunctions();
+            _model = Init();
         }
-        public IConnection Init()
+        public IModel Init()
         {
             try
             {
 
                 // Initialize a connection
-                var connection= _rabbitMQFunctions.CreateConnection(
+                var connection= _rabbitMqDefinationFunctions.CreateConnection(
                 new ConnectionInputModel
                 {
                     ClientName = _sinkConfiguration.ClientName,
@@ -34,11 +36,12 @@ namespace Micro.Serilog.Sinks.RabbitMQ
                     Password = _sinkConfiguration.RabbitMqPassword
                 });
 
+                var model = _rabbitMqDefinationFunctions.GetModelFromConnection(connection);
 
 
                 // Be sure to exist the exchange and It's binds
-                _rabbitMQFunctions.CreateAndBindExchange(
-                connection,
+                _rabbitMqDefinationFunctions.CreateAndBindExchange(
+                model,
                 new ExchangeModel
                 {
                     ExchangeName = _sinkConfiguration.RabbitMqExchangeName,
@@ -51,7 +54,7 @@ namespace Micro.Serilog.Sinks.RabbitMQ
                 });
 
 
-                return connection;
+                return model;
             }
             catch (Exception ex)
             {
@@ -61,13 +64,13 @@ namespace Micro.Serilog.Sinks.RabbitMQ
 
         public void SendMessage(string message)
         {
-            _rabbitMQFunctions.SendMessage(_connection, _sinkConfiguration.RabbitMqExchangeName, _sinkConfiguration.RabbitMqRouteKey, message);
+            _rabbitMqMessagesFunctions.SendMessage(_model, _sinkConfiguration.RabbitMqExchangeName, _sinkConfiguration.RabbitMqRouteKey, message);
         }
 
 
         public void Dispose()
         {
-            _connection?.Dispose();
+            _model?.Dispose();
         }
 
     }
