@@ -8,12 +8,12 @@
     <RepositoryUrl>https://github.com/sav68/microlib-serilog-sinks-rabbitmq</RepositoryUrl>
     <PackageTags>serilog, sink, rabbitmq, logging, dotnet-core</PackageTags>
     <PackageLicenseUrl>https://github.com/sav68/microlib-serilog-sinks-rabbitmq/blob/master/LICENSE</PackageLicenseUrl>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MicroLib.RabbitMQ.Client.Helper.Standard" Version="1.0.3" />
+    <PackageReference Include="MicroLib.RabbitMQ.Client.Helper.Standard" Version="1.0.4" />
     <PackageReference Include="Serilog" Version="2.8.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
   </ItemGroup>
