@@ -1,6 +1,7 @@
 ﻿using Serilog;
 using System;
 using Micro.Serilog.Sinks.RabbitMQ;
+using Microsoft.Extensions.Logging;
 
 namespace Sample_Console
 {
@@ -9,7 +10,7 @@ namespace Sample_Console
         static void Main(string[] args)
         {
             // How To use
-            var log = new LoggerConfiguration()
+            var logger = new LoggerConfiguration()
                    .MinimumLevel.Information()
                    .WriteTo.MySink(new SinkConfiguration
                    {
@@ -26,12 +27,15 @@ namespace Sample_Console
                    })
                    .CreateLogger();
 
+            //var loggerFactory = new LoggerFactory();
+            //loggerFactory.AddSerilog(logger);
+
             var ErrorMessage = new { msgId = 1, Description = "This is test error message" };
             var WarnMessage = new { msgId = 2, Description = "This is test warn message" };
 
-            log.Information("Hello RabbitMQ, I'm from Serilog (console app)!");
-            log.Error("Sample Error Msg {Message}" ,ErrorMessage);
-            log.Warning("Sample Error Msg {Message}", WarnMessage);
+            logger.Information("Hello RabbitMQ, I'm from Serilog (console app)!");
+            logger.Error("Sample Error Msg {Message}" ,ErrorMessage);
+            logger.Warning("Sample Error Msg {Message}", WarnMessage);
 
 
             Console.WriteLine("Press any key for exit...");

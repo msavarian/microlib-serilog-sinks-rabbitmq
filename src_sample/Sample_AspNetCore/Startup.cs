@@ -41,6 +41,7 @@ namespace Sample_AspNetCore
 
             var loggerFactory = new LoggerFactory();
             loggerFactory.AddSerilog(logger);
+
             services.AddSingleton<ILoggerFactory>(loggerFactory);
         }
 
